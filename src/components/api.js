@@ -7,3 +7,9 @@ export const getAllArticles = () => {
     return data.articles;
   });
 };
+
+export const getAllTopics = () => {
+  return axios.get(`${baseURL}/topics`).then(({ data }) => {
+    return data.topics;
+  });
+};
