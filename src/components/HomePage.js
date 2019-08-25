@@ -1,8 +1,13 @@
 import React from "react";
-import Header from "./Header";
+import { Link } from "@reach/router";
 
 const HomePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Link to="/articles">Articles</Link>
+      <Link to="/topics">Topics</Link>
+    </div>
+  );
 };
 
 export default HomePage;
