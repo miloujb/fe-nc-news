@@ -3,10 +3,9 @@ import { Link } from "@reach/router";
 
 function Header() {
   return (
-    <div>
+    <div className="linkList">
       <h1 className="Header">NC NEWS</h1>
-      <Link to="/articles">Articles</Link>
-      <Link to="/topics">Topics</Link>
+      <Link to="/articles">Articles</Link> <Link to="/topics">Topics</Link>
     </div>
   );
 }
