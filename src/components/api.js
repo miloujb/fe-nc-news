@@ -13,3 +13,9 @@ export const getAllTopics = () => {
     return data.topics;
   });
 };
+
+export const getArticleCard = () => {
+  return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
