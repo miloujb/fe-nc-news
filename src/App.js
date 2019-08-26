@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import "./App.css";
 import { Router } from "@reach/router";
 import ArticleCard from "./components/ArticleCard";
+import ArticlesByTopic from "./components/ArticlesByTopic";
 
 class App extends React.Component {
   state = {
@@ -19,6 +20,7 @@ class App extends React.Component {
           <HomePage path="/" />
           <AllArticles path="/articles" />
           <AllTopics path="/topics" />
+          <ArticlesByTopic path="/topics/:topic" />
           <ArticleCard path="/articles/:article_id" />
         </Router>
       </div>
