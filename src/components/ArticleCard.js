@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getArticleCard } from "./api";
+import { Link } from "@reach/router";
 
 class ArticleCard extends Component {
   state = {
@@ -31,6 +32,9 @@ class ArticleCard extends Component {
         </p>
         <p>Votes: {singleArticle.votes}</p>
         <p>{singleArticle.comment_count} Comments</p>
+        <Link to={`/articles/${singleArticle.article_id}/comments`}>
+          Comments
+        </Link>
       </div>
     );
   }
