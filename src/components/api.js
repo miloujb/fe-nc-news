@@ -27,3 +27,7 @@ export const getComments = article_id => {
       return data.comments;
     });
 };
+
+export const getUser = username => {
+  return axios.get()`${baseURL}/users/${username}`;
+};
