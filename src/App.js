@@ -25,7 +25,7 @@ class App extends React.Component {
           <ArticlesByTopic path="/topics/:topic" />
           <ArticleCard path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" />
-          <User path="/articles/users/:username" />
+          <User path="/users/:username" />
         </Router>
       </div>
     );

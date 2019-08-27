@@ -12,20 +12,20 @@ class User extends Component {
   }
 
   fetchUser = () => {
-    getUser(this.props.username).then(username => {
+    const { username } = this.props;
+    getUser(username).then(username => {
       this.setState({ user: username, isLoading: false });
     });
   };
 
   render() {
     const { user, isLoading } = this.state;
-    console.log(this.state);
     if (isLoading) return <p>Loading...</p>;
     return (
       <div>
         <h2>{user.username}'s Profile</h2>
-        <img src={user.avatar_url} alt={user.username} />
         <h3>Name: {user.name}</h3>
+        <img src={user.avatar_url} alt={user.username} />
       </div>
     );
   }
