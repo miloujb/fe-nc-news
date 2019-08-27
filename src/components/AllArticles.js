@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getAllArticles } from "./api";
+import { Link } from "@reach/router";
 
 class AllArticles extends Component {
   state = {
@@ -25,7 +26,11 @@ class AllArticles extends Component {
         <ul>
           {allArticles.map(article => {
             const { article_id, title } = article;
-            return <li key={article_id}>{title}</li>;
+            return (
+              <Link to={`/articles/${article_id}`}>
+                <li key={article_id}>{title}</li>
+              </Link>
+            );
           })}
         </ul>
       </div>
