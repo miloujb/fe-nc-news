@@ -24,7 +24,9 @@ class ArticleCard extends Component {
     return (
       <div>
         <h2>{singleArticle.title}</h2>
-        <h3>Author: {singleArticle.author}</h3>
+        <Link to={`/users/${singleArticle.author}`}>
+          <h3>Author: {singleArticle.author}</h3>
+        </Link>
         <p>{singleArticle.body}</p>
         <p>
           Published: {new Date(singleArticle.created_at).toLocaleString()} in{" "}

@@ -22,7 +22,7 @@ class App extends React.Component {
           <HomePage path="/" />
           <AllArticles path="/articles" />
           <AllTopics path="/topics" />
-          <ArticlesByTopic path="/topics/:topic" />
+          <ArticlesByTopic path="/articles?topic=:topic" />
           <ArticleCard path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" />
           <User path="/users/:username" />
