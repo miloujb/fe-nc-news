@@ -2,10 +2,12 @@ import axios from "axios";
 
 export const baseURL = "https://backend-nc-news.herokuapp.com/api";
 
-export const getAllArticles = () => {
-  return axios.get(`${baseURL}/articles`).then(({ data }) => {
-    return data.articles;
-  });
+export const getAllArticles = topic => {
+  return axios
+    .get(`${baseURL}/articles`, { params: { topic: topic } })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 export const getAllTopics = () => {
@@ -34,9 +36,9 @@ export const getUser = username => {
   });
 };
 
-export const postComment = article_id => {
+export const postComment = ({ article_id, body, username }) => {
   return axios
-    .post(`${baseURL}/articles/${article_id}/comments`)
+    .post(`${baseURL}/articles/${article_id}/comments`, { body, username })
     .then(({ data }) => {
       return data.comments;
     });

@@ -9,6 +9,7 @@ import ArticleCard from "./components/ArticleCard";
 import ArticlesByTopic from "./components/ArticlesByTopic";
 import Comments from "./components/Comments";
 import User from "./components/User";
+import AddNewComment from "./components/AddNewComment";
 
 class App extends React.Component {
   state = {
@@ -22,9 +23,10 @@ class App extends React.Component {
           <HomePage path="/" />
           <AllArticles path="/articles" />
           <AllTopics path="/topics" />
-          <ArticlesByTopic path="/articles?topic=:topic" />
+          <ArticlesByTopic path="/topics/:topic" />
           <ArticleCard path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" />
+          <AddNewComment path="articles/:article_id/comments" />
           <User path="/users/:username" />
         </Router>
       </div>

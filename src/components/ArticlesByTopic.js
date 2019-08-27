@@ -13,7 +13,7 @@ class ArticlesByTopic extends Component {
   };
 
   fetchAllArticles = () => {
-    getAllArticles().then(articles => {
+    getAllArticles(this.props.topic).then(articles => {
       this.setState({ sameTopicArticles: articles, isLoading: false });
     });
   };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { getComments } from "./api";
+import { getComments, postComment } from "./api";
+import AddNewComment from "./AddNewComment";
 
 class Comments extends Component {
   state = {
@@ -15,6 +16,18 @@ class Comments extends Component {
     const { article_id } = this.props;
     getComments(article_id).then(comments => {
       this.setState({ articleComments: comments, isLoading: false });
+    });
+  };
+
+  addComment = () => {
+    console.log(this.props);
+    const { article_id, body } = this.props;
+    postComment({ body, article_id }).then(comment => {
+      this.setState(prevState => {
+        return {
+          comments: [comment.data.comment, ...prevState.comments]
+        };
+      });
     });
   };
 
@@ -38,6 +51,7 @@ class Comments extends Component {
               <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
               <p>Votes: {votes}</p>
+              <AddNewComment />
             </div>
           );
         })}
