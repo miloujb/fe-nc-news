@@ -8,6 +8,7 @@ import { Router } from "@reach/router";
 import ArticleCard from "./components/ArticleCard";
 import ArticlesByTopic from "./components/ArticlesByTopic";
 import Comments from "./components/Comments";
+import User from "./components/User";
 
 class App extends React.Component {
   state = {
@@ -24,6 +25,7 @@ class App extends React.Component {
           <ArticlesByTopic path="/topics/:topic" />
           <ArticleCard path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" />
+          <User path="/articles/users/:username" />
         </Router>
       </div>
     );
