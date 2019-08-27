@@ -28,9 +28,16 @@ export const getComments = article_id => {
     });
 };
 
-
 export const getUser = username => {
   return axios.get(`${baseURL}/users/${username}`).then(({ data }) => {
     return data.user;
   });
+};
+
+export const postComment = article_id => {
+  return axios
+    .post(`${baseURL}/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    });
 };
