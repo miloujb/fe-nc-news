@@ -28,11 +28,6 @@ export const getComments = article_id => {
     });
 };
 
-export const getAllUsers = username => {
-  return axios.get(`${baseURL}/users`).then(({data})=> {
-    return data.users
-  })
-}
 
 export const getUser = username => {
   return axios.get(`${baseURL}/users/${username}`).then(({ data }) => {
