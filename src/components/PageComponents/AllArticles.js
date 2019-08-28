@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { getAllArticles } from "./api";
+import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
 
-class ArticlesByTopic extends Component {
+class AllArticles extends Component {
   state = {
-    sameTopicArticles: null,
-    isLoading: true
+    isLoading: true,
+    allArticles: null
   };
 
   componentDidMount = () => {
@@ -13,19 +13,19 @@ class ArticlesByTopic extends Component {
   };
 
   fetchAllArticles = () => {
-    getAllArticles(this.props.topic).then(articles => {
-      this.setState({ sameTopicArticles: articles, isLoading: false });
+    getAllArticles().then(articles => {
+      this.setState({ allArticles: articles, isLoading: false });
     });
   };
 
   render() {
-    const { isLoading, sameTopicArticles } = this.state;
+    const { isLoading, allArticles } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
       <div>
         <ul>
-          {sameTopicArticles.map(sameTopicArticle => {
-            const { article_id, title } = sameTopicArticle;
+          {allArticles.map(article => {
+            const { article_id, title } = article;
             return (
               <Link to={`/articles/${article_id}`}>
                 <li key={article_id}>{title}</li>
@@ -38,4 +38,4 @@ class ArticlesByTopic extends Component {
   }
 }
 
-export default ArticlesByTopic;
+export default AllArticles;

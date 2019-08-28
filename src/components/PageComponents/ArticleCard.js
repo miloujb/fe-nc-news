@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getArticleCard } from "./api";
+import { getArticleCard } from "../API/api";
 import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
 

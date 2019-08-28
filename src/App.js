@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./components/Header";
-import AllArticles from "./components/AllArticles";
-import AllTopics from "./components/AllTopics";
-import HomePage from "./components/HomePage";
+import AllArticles from "./components/PageComponents/AllArticles";
+import AllTopics from "./components/PageComponents/AllTopics";
+import HomePage from "./components/PageComponents/HomePage";
 import "./App.css";
 import { Router } from "@reach/router";
-import ArticleCard from "./components/ArticleCard";
-import ArticlesByTopic from "./components/ArticlesByTopic";
-import Comments from "./components/Comments";
-import User from "./components/User";
-import AddNewComment from "./components/AddNewComment";
-import Error from "./components/Error";
+import ArticleCard from "./components/PageComponents/ArticleCard";
+import ArticlesByTopic from "./components/PageComponents/ArticlesByTopic";
+import Comments from "./components/PageComponents/Comments";
+import User from "./components/PageComponents/User";
+import AddNewComment from "./components/PageComponents/AddNewComment";
+import Error from "./components/PageComponents/Error";
 
 class App extends React.Component {
   state = {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { postComment } from "./api";
+import { postComment } from "../API/api";
 
 class AddNewComment extends Component {
   state = {
@@ -30,14 +30,21 @@ class AddNewComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, article_id } = this.props;
+    // console.log(this.props);
+    const { username, article_id, comment_id, votes, created_at } = this.props;
     const { newComment } = this.state;
-    postComment({ article_id, body: newComment, username }).then(
-      newAddedComment => {
-        this.props.AddComment(newComment);
-        this.setState({ comment: "" });
-      }
-    );
+    // console.log(newComment);
+    postComment({
+      article_id,
+      body: newComment,
+      author: username,
+      comment_id,
+      created_at,
+      votes
+    }).then(newAddedComment => {
+      this.props.AddComment(newComment);
+      this.setState({ comment: "" });
+    });
   };
 }
 
