@@ -32,8 +32,6 @@ class AddNewComment extends Component {
     event.preventDefault();
     const { username, article_id } = this.props;
     const { newComment } = this.state;
-    console.log(this.props);
-    console.log(newComment);
     postComment({
       article_id,
       body: newComment,

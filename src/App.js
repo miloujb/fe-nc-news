@@ -11,6 +11,7 @@ import Comments from "./components/PageComponents/Comments";
 import User from "./components/PageComponents/User";
 import AddNewComment from "./components/PageComponents/AddNewComment";
 import Error from "./components/PageComponents/Error";
+// import DeleteComment from "./components/PageComponents/DeleteComment";
 
 class App extends React.Component {
   state = {
@@ -29,8 +30,12 @@ class App extends React.Component {
             path="/articles/:article_id"
             username={this.state.username}
           />
-          <Comments path="/articles/:article_id/comments" />
+          <Comments
+            path="/articles/:article_id/comments"
+            username={this.state.username}
+          />
           <AddNewComment path="articles/:article_id/comments" />
+          {/* <DeleteComment /> */}
           <User path="/users/:username" />
           <Error path="/error" />
         </Router>

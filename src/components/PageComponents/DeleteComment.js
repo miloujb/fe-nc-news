@@ -1,10 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
+import { deleteComment } from "../API/api";
 
-class DeleteComment extends Component {
-  render() {
-    state = {};
-    return <div></div>;
-  }
-}
+const DeleteComment = props => {
+  // IF (PROPS.USERNAME === PROPS.COMMENTS.USERNAME)
+  console.log(props.comment_id);
+  return (
+    <div>
+      <button type="submit" onClick={() => deleteComment(props.comment_id)}>
+        Delete
+      </button>
+    </div>
+  );
+  // else return null;
+};
 
 export default DeleteComment;

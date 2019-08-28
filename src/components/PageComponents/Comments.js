@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { getComments, postComment } from "../API/api";
+import { getComments, postComment, deleteComment } from "../API/api";
+import DeleteComment from "./DeleteComment";
 
 class Comments extends Component {
   state = {
-    articleComments: null,
+    articleComments: [],
     isLoading: true
   };
 
@@ -30,6 +31,16 @@ class Comments extends Component {
     });
   };
 
+  removeComment = comment_id => {
+    deleteComment(comment_id).then(comment => {
+      this.setState(prevState => {
+        return {
+          comments: [...prevState.comments]
+        };
+      });
+    });
+  };
+
   render() {
     const { articleComments, isLoading } = this.state;
     if (isLoading) return <p>Loading...</p>;
@@ -50,9 +61,16 @@ class Comments extends Component {
               <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
               <p>Votes: {votes}</p>
+              <DeleteComment
+                comments={articleComments}
+                article_id={this.props.article_id}
+                username={this.props.username}
+                comment_id={comment_id}
+              />
             </div>
           );
         })}
+        )}
       </div>
     );
   }
