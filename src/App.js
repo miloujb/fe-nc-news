@@ -25,7 +25,10 @@ class App extends React.Component {
           <AllArticles path="/articles" />
           <AllTopics path="/topics" />
           <ArticlesByTopic path="/topics/:topic" />
-          <ArticleCard path="/articles/:article_id" />
+          <ArticleCard
+            path="/articles/:article_id"
+            username={this.state.username}
+          />
           <Comments path="/articles/:article_id/comments" />
           <AddNewComment path="articles/:article_id/comments" />
           <User path="/users/:username" />

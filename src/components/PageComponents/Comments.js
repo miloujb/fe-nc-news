@@ -4,8 +4,7 @@ import { getComments, postComment } from "../API/api";
 class Comments extends Component {
   state = {
     articleComments: null,
-    isLoading: true,
-    username: "jessjelly"
+    isLoading: true
   };
 
   componentDidMount() {
@@ -20,11 +19,9 @@ class Comments extends Component {
   };
 
   addComment = () => {
-    console.log(this.props);
     const { article_id, body } = this.props;
     const { username } = this.state;
     postComment({ body, article_id, username }).then(comment => {
-      console.log(comment);
       this.setState(prevState => {
         return {
           comments: [comment.data.comment, ...prevState.comments]

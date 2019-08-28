@@ -9,12 +9,12 @@ class AddNewComment extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Comment:
             <input
               type="textarea"
-              value={this.state.comment}
+              value={this.state.newComment}
               onChange={this.handleChange}
             />
           </label>
@@ -30,21 +30,22 @@ class AddNewComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.props);
-    const { username, article_id, comment_id, votes, created_at } = this.props;
+    const { username, article_id } = this.props;
     const { newComment } = this.state;
-    // console.log(newComment);
+    console.log(this.props);
+    console.log(newComment);
     postComment({
       article_id,
       body: newComment,
-      author: username,
-      comment_id,
-      created_at,
-      votes
-    }).then(newAddedComment => {
-      this.props.AddComment(newComment);
-      this.setState({ comment: "" });
-    });
+      username
+    })
+      .then(newAddedComment => {
+        console.log(newAddedComment);
+        this.setState({ newComment: "" });
+      })
+      .catch(error => {
+        console.dir(error);
+      });
   };
 }
 

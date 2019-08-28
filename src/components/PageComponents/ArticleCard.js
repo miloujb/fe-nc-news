@@ -7,7 +7,8 @@ class ArticleCard extends Component {
   state = {
     singleArticle: null,
     isLoading: true,
-    error: null
+    error: null,
+    username: "jessjelly"
   };
 
   componentDidMount = () => {
@@ -15,13 +16,9 @@ class ArticleCard extends Component {
   };
 
   fetchArticleCard = () => {
-    getArticleCard(this.props.article_id)
-      .then(article => {
-        this.setState({ singleArticle: article, isLoading: false });
-      })
-      .catch(error => {
-        console.dir(error);
-      });
+    getArticleCard(this.props.article_id).then(article => {
+      this.setState({ singleArticle: article, isLoading: false });
+    });
   };
 
   render() {
@@ -40,7 +37,10 @@ class ArticleCard extends Component {
         </p>
         <p>Votes: {singleArticle.votes}</p>
         <p>{singleArticle.comment_count} Comments</p>
-        <AddNewComment />
+        <AddNewComment
+          article_id={this.props.article_id}
+          username={this.props.username}
+        />
         <Link to={`/articles/${singleArticle.article_id}/comments`}>
           Comments
         </Link>
