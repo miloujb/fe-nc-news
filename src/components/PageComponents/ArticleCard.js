@@ -3,6 +3,7 @@ import { getArticleCard } from "../API/api";
 import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
 import VoteUpdater from "./VoteUpdater";
+import Comments from "./Comments";
 
 class ArticleCard extends Component {
   state = {
@@ -44,9 +45,7 @@ class ArticleCard extends Component {
           article_id={this.props.article_id}
           username={this.props.username}
         />
-        <Link to={`/articles/${singleArticle.article_id}/comments`}>
-          Comments
-        </Link>
+        <Comments article_id={article_id} />
       </div>
     );
   }

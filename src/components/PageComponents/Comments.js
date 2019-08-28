@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { getComments, postComment, deleteComment } from "../API/api";
+import {
+  getComments,
+  postComment,
+  deleteComment,
+  patchCommentVotes
+} from "../API/api";
 import DeleteComment from "./DeleteComment";
 
 class Comments extends Component {
@@ -61,6 +66,7 @@ class Comments extends Component {
               <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
               <p>Votes: {votes}</p>
+              <patchCommentVotes comment_id={comment_id} votes={votes} />
               <DeleteComment
                 comments={articleComments}
                 article_id={this.props.article_id}
