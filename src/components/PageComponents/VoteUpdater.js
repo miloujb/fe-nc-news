@@ -10,6 +10,7 @@ class VoteUpdater extends Component {
   };
 
   render() {
+    console.log(this.state);
     const { voteChanger, votes } = this.state;
     return (
       <div>
