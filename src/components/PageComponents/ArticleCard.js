@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getArticleCard } from "../API/api";
 import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
+import VoteUpdater from "./VoteUpdater";
 
 class ArticleCard extends Component {
   state = {
@@ -22,6 +23,7 @@ class ArticleCard extends Component {
   };
 
   render() {
+    const article_id = this.props.article_id;
     const { singleArticle, isLoading } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
@@ -35,8 +37,9 @@ class ArticleCard extends Component {
           Published: {new Date(singleArticle.created_at).toLocaleString()} in{" "}
           {singleArticle.topic}
         </p>
-        <p>Votes: {singleArticle.votes}</p>
+        {/* <p>Votes: {singleArticle.votes}</p> */}
         <p>{singleArticle.comment_count} Comments</p>
+        <VoteUpdater article_id={article_id} votes={singleArticle.votes} />
         <AddNewComment
           article_id={this.props.article_id}
           username={this.props.username}

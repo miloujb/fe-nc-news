@@ -35,7 +35,6 @@ class App extends React.Component {
             username={this.state.username}
           />
           <AddNewComment path="articles/:article_id/comments" />
-          {/* <DeleteComment /> */}
           <User path="/users/:username" />
           <Error path="/error" />
         </Router>

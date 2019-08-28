@@ -27,7 +27,7 @@ class AllArticles extends Component {
           {allArticles.map(article => {
             const { article_id, title } = article;
             return (
-              <Link to={`/articles/${article_id}`}>
+              <Link to={`/articles/${article_id}`} article_id={article_id}>
                 <li key={article_id}>{title}</li>
               </Link>
             );
