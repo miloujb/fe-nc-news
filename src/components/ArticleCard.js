@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { getArticleCard } from "./api";
 import { Link } from "@reach/router";
+import AddNewComment from "./AddNewComment";
 
 class ArticleCard extends Component {
   state = {
     singleArticle: null,
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   componentDidMount = () => {
@@ -13,9 +15,13 @@ class ArticleCard extends Component {
   };
 
   fetchArticleCard = () => {
-    getArticleCard(this.props.article_id).then(article => {
-      this.setState({ singleArticle: article, isLoading: false });
-    });
+    getArticleCard(this.props.article_id)
+      .then(article => {
+        this.setState({ singleArticle: article, isLoading: false });
+      })
+      .catch(error => {
+        console.dir(error);
+      });
   };
 
   render() {
@@ -34,6 +40,7 @@ class ArticleCard extends Component {
         </p>
         <p>Votes: {singleArticle.votes}</p>
         <p>{singleArticle.comment_count} Comments</p>
+        <AddNewComment />
         <Link to={`/articles/${singleArticle.article_id}/comments`}>
           Comments
         </Link>

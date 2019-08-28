@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { getComments, postComment } from "./api";
-import AddNewComment from "./AddNewComment";
 
 class Comments extends Component {
   state = {
@@ -51,7 +50,6 @@ class Comments extends Component {
               <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
               <p>Votes: {votes}</p>
-              <AddNewComment />
             </div>
           );
         })}
