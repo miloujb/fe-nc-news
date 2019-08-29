@@ -3,7 +3,6 @@ import axios from "axios";
 export const baseURL = "https://backend-nc-news.herokuapp.com/api";
 
 export const getAllArticles = (topic, sort_by, order) => {
-  console.log(sort_by, order, "<<<<<<<");
   return axios
     .get(`${baseURL}/articles`, {
       params: { topic: topic, sort_by: sort_by, order: order }
@@ -52,7 +51,6 @@ export const deleteComment = comment_id => {
 };
 
 export const patchVotes = (value, article_id) => {
-  console.log(article_id);
   return axios.patch(`${baseURL}/articles/${article_id}`, { inc_votes: value });
 };
 

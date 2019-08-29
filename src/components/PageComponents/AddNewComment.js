@@ -36,14 +36,9 @@ class AddNewComment extends Component {
       article_id,
       body: newComment,
       username
-    })
-      .then(newAddedComment => {
-        console.log(newAddedComment);
-        this.setState({ newComment: "" });
-      })
-      .catch(error => {
-        console.dir(error);
-      });
+    }).then(newAddedComment => {
+      this.setState({ newComment: "" });
+    });
   };
 }
 
