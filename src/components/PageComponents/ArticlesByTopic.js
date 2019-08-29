@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
+import Sorter from "./Sorter";
 
 class ArticlesByTopic extends Component {
   state = {
@@ -24,6 +25,7 @@ class ArticlesByTopic extends Component {
     if (isLoading) return <p>Loading...</p>;
     return (
       <div>
+        <Sorter fetchAllArticles={this.fetchAllArticles} />
         <ul>
           {sameTopicArticles.map(sameTopicArticle => {
             const {
@@ -34,7 +36,7 @@ class ArticlesByTopic extends Component {
               created_at
             } = sameTopicArticle;
             return (
-              <Link to={`/articles/${article_id}`}>
+              <Link to={`/articles/${article_id}`} key={article_id}>
                 <li key={article_id}>{title}</li>
                 <p>Comments: {comment_count}</p>
                 <p>Votes: {votes}</p>

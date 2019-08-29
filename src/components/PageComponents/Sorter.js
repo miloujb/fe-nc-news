@@ -14,7 +14,6 @@ class Sorter extends Component {
     const { fetchAllArticles } = this.props;
     const { sort_by, order } = this.state;
     console.log(sort_by, order);
-    console.log(fetchAllArticles);
     event.preventDefault();
     fetchAllArticles(sort_by, order);
   };
