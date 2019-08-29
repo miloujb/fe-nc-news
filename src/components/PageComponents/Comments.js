@@ -6,7 +6,8 @@ import VoteUpdater from "./VoteUpdater";
 class Comments extends Component {
   state = {
     articleComments: [],
-    isLoading: true
+    isLoading: true,
+    username: "jessjelly"
   };
 
   componentDidMount() {
@@ -66,8 +67,9 @@ class Comments extends Component {
               <DeleteComment
                 comments={articleComments}
                 article_id={this.props.article_id}
-                username={this.props.username}
+                username={articleComment.author}
                 comment_id={comment_id}
+                loggedInUser={this.state.username}
               />
             </div>
           );
