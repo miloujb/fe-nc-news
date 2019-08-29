@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
+import Sorter from "./Sorter";
 
 class AllArticles extends Component {
   state = {
@@ -23,6 +24,7 @@ class AllArticles extends Component {
     if (isLoading) return <p>Loading...</p>;
     return (
       <div>
+        <Sorter />
         <ul>
           {allArticles.map(article => {
             const { article_id, title } = article;
