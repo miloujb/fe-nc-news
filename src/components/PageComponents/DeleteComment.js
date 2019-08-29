@@ -2,7 +2,6 @@ import React from "react";
 import { deleteComment } from "../API/api";
 
 const DeleteComment = props => {
-  console.log(props);
   return (
     props.username === props.loggedInUser && (
       <div>

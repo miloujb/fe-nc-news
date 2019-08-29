@@ -18,7 +18,7 @@ class AllArticles extends Component {
   fetchAllArticles = (topic, sort_by, order) => {
     getAllArticles(topic, sort_by, order).then(articles => {
       this.setState({ allArticles: articles, isLoading: false });
-    });
+    })
   };
 
   render() {

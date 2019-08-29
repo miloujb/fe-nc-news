@@ -4,6 +4,7 @@ import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
 import VoteUpdater from "./VoteUpdater";
 import Comments from "./Comments";
+import Error from "./Error";
 
 class ArticleCard extends Component {
   state = {
@@ -18,15 +19,21 @@ class ArticleCard extends Component {
   };
 
   fetchArticleCard = () => {
-    getArticleCard(this.props.article_id).then(article => {
-      this.setState({ singleArticle: article, isLoading: false });
-    });
+    getArticleCard(this.props.article_id)
+      .then(article => {
+        this.setState({ singleArticle: article, isLoading: false });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({ error, isLoading: false });
+      });
   };
 
   render() {
     const article_id = this.props.article_id;
-    const { singleArticle, isLoading } = this.state;
+    const { singleArticle, isLoading, error } = this.state;
     if (isLoading) return <p>Loading...</p>;
+    if (error) return <Error />;
     return (
       <div class="container">
         <h2>{singleArticle.title}</h2>
