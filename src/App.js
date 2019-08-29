@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import Header from "./components/Header";
 import AllArticles from "./components/PageComponents/AllArticles";
 import AllTopics from "./components/PageComponents/AllTopics";
