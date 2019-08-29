@@ -28,7 +28,7 @@ class ArticleCard extends Component {
     const { singleArticle, isLoading } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
-      <div>
+      <div class="container">
         <h2>{singleArticle.title}</h2>
         <Link to={`/users/${singleArticle.author}`}>
           <h3>Author: {singleArticle.author}</h3>

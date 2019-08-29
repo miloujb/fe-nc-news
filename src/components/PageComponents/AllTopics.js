@@ -22,7 +22,7 @@ class AllTopics extends Component {
     const { isLoading, allTopics } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
-      <div>
+      <div class="container">
         <ul>
           {allTopics.map(topic => {
             const { slug, description } = topic;

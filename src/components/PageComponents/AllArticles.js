@@ -23,7 +23,7 @@ class AllArticles extends Component {
     const { isLoading, allArticles } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
-      <div>
+      <div class="container">
         <Sorter fetchAllArticles={this.fetchAllArticles} />
         <ul>
           {allArticles.map(article => {

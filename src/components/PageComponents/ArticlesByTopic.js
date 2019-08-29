@@ -24,7 +24,7 @@ class ArticlesByTopic extends Component {
     const { isLoading, sameTopicArticles } = this.state;
     if (isLoading) return <p>Loading...</p>;
     return (
-      <div>
+      <div class="container">
         <Sorter fetchAllArticles={this.fetchAllArticles} />
         <ul>
           {sameTopicArticles.map(sameTopicArticle => {

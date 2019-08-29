@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { patchVotes, patchCommentVotes } from "../API/api";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class VoteUpdater extends Component {
   state = {
@@ -20,6 +22,7 @@ class VoteUpdater extends Component {
             value={1}
             disabled={voteChanger === 1}
           >
+            <FontAwesomeIcon icon={faThumbsUp} />
             Upvote
           </button>
           <button
@@ -27,6 +30,7 @@ class VoteUpdater extends Component {
             value={-1}
             disabled={voteChanger === -1}
           >
+            <FontAwesomeIcon icon={faThumbsDown} />
             Downvote
           </button>
         </form>
