@@ -15,14 +15,14 @@ class VoteUpdater extends Component {
         <p>Votes: {votes + voteChanger}</p>
         <form>
           <button
-            onClick={this.changeVotes}
+            onClick={this.handleClick}
             value={1}
             disabled={voteChanger === 1}
           >
             Upvote
           </button>
           <button
-            onClick={this.changeVotes}
+            onClick={this.handleClick}
             value={-1}
             disabled={voteChanger === -1}
           >
@@ -32,18 +32,18 @@ class VoteUpdater extends Component {
       </div>
     );
   }
-  changeVotes = event => {
+  handleClick = event => {
     event.preventDefault();
     const { value } = event.target;
     const { article_id } = this.state;
-    if (article_id) {
-      patchVotes(article_id, value);
-      this.setState(currentState => {
-        return {
-          voteChanger: currentState.voteChanger + +value
-        };
-      });
-    }
+    console.log(article_id);
+    // article_id not console.logging - is this why we're getting the error message?
+    this.setState(({ voteChanger }) => {
+      return {
+        voteChanger: voteChanger + +value
+      };
+    });
+    patchVotes(value, article_id);
   };
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getComments, postComment, deleteComment } from "../API/api";
 import DeleteComment from "./DeleteComment";
-import VoteUpdater from "./VoteUpdater";
+// import VoteUpdater from "./VoteUpdater";
 
 class Comments extends Component {
   state = {
@@ -62,7 +62,7 @@ class Comments extends Component {
               <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
               <p>Votes: {votes}</p>
-              <VoteUpdater comment_id={comment_id} votes={votes} />
+              {/* <VoteUpdater comment_id={comment_id} votes={votes} /> */}
               <DeleteComment
                 comments={articleComments}
                 article_id={this.props.article_id}
