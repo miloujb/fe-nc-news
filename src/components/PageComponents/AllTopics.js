@@ -27,7 +27,7 @@ class AllTopics extends Component {
           {allTopics.map(topic => {
             const { slug, description } = topic;
             return (
-              <Link to={`/topics/${slug}`}>
+              <Link to={`/topics/${slug}`} key={slug}>
                 <li key={description}>{slug}</li>
               </Link>
             );
