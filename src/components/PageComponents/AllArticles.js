@@ -24,12 +24,16 @@ class AllArticles extends Component {
     if (isLoading) return <p>Loading...</p>;
     return (
       <div>
-        <Sorter />
+        <Sorter fetchAllArticles={this.fetchAllArticles} />
         <ul>
           {allArticles.map(article => {
             const { article_id, title } = article;
             return (
-              <Link to={`/articles/${article_id}`} article_id={article_id}>
+              <Link
+                to={`/articles/${article_id}`}
+                article_id={article_id}
+                key={article_id}
+              >
                 <li key={article_id}>{title}</li>
               </Link>
             );

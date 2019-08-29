@@ -12,8 +12,9 @@ class ArticlesByTopic extends Component {
     this.fetchAllArticles();
   };
 
-  fetchAllArticles = () => {
-    getAllArticles(this.props.topic).then(articles => {
+  fetchAllArticles = (sort_by, order) => {
+    const { topic } = this.props;
+    getAllArticles({ topic, sort_by, order }).then(articles => {
       this.setState({ sameTopicArticles: articles, isLoading: false });
     });
   };

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { getAllArticles } from "../API/api";
 
 class Sorter extends Component {
   state = {
@@ -12,7 +11,7 @@ class Sorter extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <select value={sort_by} onChange={this.handleChange}>
+          <select value={sort_by} onChange={this.handleSortChange}>
             <option value="created_at">Date</option>
             <option value="comment_count">Comments</option>
             <option value="votes">Votes</option>
@@ -26,7 +25,7 @@ class Sorter extends Component {
       </div>
     );
   }
-  handleChange = event => {
+  handleSortChange = event => {
     this.setState({ sort_by: event.target.value });
   };
 
@@ -35,9 +34,11 @@ class Sorter extends Component {
   };
 
   handleSubmit = event => {
+    const { fetchAllArticles } = this.props;
     event.preventDefault();
     const { sort_by, order } = this.state;
-    alert("You are sorting by " + sort_by + " in " + order + " order");
+    console.log(this.state);
+    fetchAllArticles(sort_by, order);
   };
 }
 
