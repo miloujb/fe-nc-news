@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
 import Sorter from "./Sorter";
+import Error from "./Error";
 
 class AllArticles extends Component {
   state = {
     isLoading: true,
-    allArticles: null
+    allArticles: null,
+    error: null
   };
 
   componentDidMount = () => {
@@ -20,7 +22,8 @@ class AllArticles extends Component {
   };
 
   render() {
-    const { isLoading, allArticles } = this.state;
+    const { isLoading, allArticles, error } = this.state;
+    if (error) return <Error />;
     if (isLoading) return <p>Loading...</p>;
     return (
       <div class="container">
