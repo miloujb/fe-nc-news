@@ -37,7 +37,11 @@ class App extends React.Component {
           />
           <AddNewComment path="articles/:article_id/comments" />
           <User path="/users/:username" />
-          <Error path="/error" />
+          <Error
+            path="/error"
+            error={{ status: 404, statusText: "not found" }}
+            default
+          />
         </Router>
       </div>
     );

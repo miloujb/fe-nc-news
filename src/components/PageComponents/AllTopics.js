@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { getAllTopics } from "../API/api";
 import { Link } from "@reach/router";
+import Error from "./Error";
 
 class AllTopics extends Component {
   state = {
     isLoading: true,
-    allTopics: null
+    allTopics: null,
+    error: null
   };
 
   componentDidMount = () => {
@@ -14,12 +16,14 @@ class AllTopics extends Component {
 
   fetchAllTopics = () => {
     getAllTopics().then(topics => {
-      this.setState({ allTopics: topics, isLoading: false });
+      this.setState({ allTopics: topics, isLoading: false, error: null });
     });
   };
 
   render() {
-    const { isLoading, allTopics } = this.state;
+    console.log(this.state);
+    const { isLoading, allTopics, error } = this.state;
+    if (error) return <Error />;
     if (isLoading) return <p>Loading...</p>;
     return (
       <div class="container">
