@@ -14,7 +14,7 @@ class ArticlesByTopic extends Component {
 
   fetchAllArticles = (sort_by, order) => {
     const { topic } = this.props;
-    getAllArticles({ topic, sort_by, order }).then(articles => {
+    getAllArticles(topic, sort_by, order).then(articles => {
       this.setState({ sameTopicArticles: articles, isLoading: false });
     });
   };
@@ -26,10 +26,19 @@ class ArticlesByTopic extends Component {
       <div>
         <ul>
           {sameTopicArticles.map(sameTopicArticle => {
-            const { article_id, title } = sameTopicArticle;
+            const {
+              article_id,
+              title,
+              comment_count,
+              votes,
+              created_at
+            } = sameTopicArticle;
             return (
               <Link to={`/articles/${article_id}`}>
                 <li key={article_id}>{title}</li>
+                <p>Comments: {comment_count}</p>
+                <p>Votes: {votes}</p>
+                <p>Date: {new Date(created_at).toLocaleString()}</p>
               </Link>
             );
           })}

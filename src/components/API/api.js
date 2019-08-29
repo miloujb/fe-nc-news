@@ -3,6 +3,7 @@ import axios from "axios";
 export const baseURL = "https://backend-nc-news.herokuapp.com/api";
 
 export const getAllArticles = (topic, sort_by, order) => {
+  console.log(sort_by, order, "<<<<<<<");
   return axios
     .get(`${baseURL}/articles`, {
       params: { topic: topic, sort_by: sort_by, order: order }

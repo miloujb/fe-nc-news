@@ -13,8 +13,8 @@ class AllArticles extends Component {
     this.fetchAllArticles();
   };
 
-  fetchAllArticles = () => {
-    getAllArticles().then(articles => {
+  fetchAllArticles = (sort_by, order) => {
+    getAllArticles(undefined, sort_by, order).then(articles => {
       this.setState({ allArticles: articles, isLoading: false });
     });
   };
@@ -27,7 +27,13 @@ class AllArticles extends Component {
         <Sorter fetchAllArticles={this.fetchAllArticles} />
         <ul>
           {allArticles.map(article => {
-            const { article_id, title } = article;
+            const {
+              article_id,
+              title,
+              comment_count,
+              votes,
+              created_at
+            } = article;
             return (
               <Link
                 to={`/articles/${article_id}`}
@@ -35,6 +41,9 @@ class AllArticles extends Component {
                 key={article_id}
               >
                 <li key={article_id}>{title}</li>
+                <p>Comments: {comment_count}</p>
+                <p>Votes: {votes}</p>
+                <p>Date: {new Date(created_at).toLocaleString()}</p>
               </Link>
             );
           })}
