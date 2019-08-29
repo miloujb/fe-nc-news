@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { patchVotes } from "../API/api";
+import { patchVotes, patchCommentVotes } from "../API/api";
 
 class VoteUpdater extends Component {
   state = {
     voteChanger: 0,
     article_id: this.props.article_id,
+    comment_id: this.props.comment_id,
     votes: this.props.votes
   };
 
@@ -35,7 +36,7 @@ class VoteUpdater extends Component {
   handleClick = event => {
     event.preventDefault();
     const { value } = event.target;
-    const { article_id } = this.state;
+    const { article_id, comment_id } = this.state;
     console.log(article_id);
     // article_id not console.logging - is this why we're getting the error message?
     this.setState(({ voteChanger }) => {
@@ -43,7 +44,10 @@ class VoteUpdater extends Component {
         voteChanger: voteChanger + +value
       };
     });
-    patchVotes(value, article_id);
+    if (article_id) patchVotes(value, article_id);
+    else {
+      patchCommentVotes(value, comment_id);
+    }
   };
 }
 
