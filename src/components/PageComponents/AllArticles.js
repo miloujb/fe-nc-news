@@ -43,16 +43,18 @@ class AllArticles extends Component {
               created_at
             } = article;
             return (
-              <Link
-                to={`/articles/${article_id}`}
-                article_id={article_id}
-                key={article_id}
-              >
-                <li key={article_id}>{title}</li>
+              <div>
+                <Link
+                  to={`/articles/${article_id}`}
+                  article_id={article_id}
+                  key={article_id}
+                >
+                  <li key={article_id}>{title}</li>
+                </Link>
                 <p>Comments: {comment_count}</p>
                 <p>Votes: {votes}</p>
                 <p>Date: {new Date(created_at).toLocaleString()}</p>
-              </Link>
+              </div>
             );
           })}
         </ul>
