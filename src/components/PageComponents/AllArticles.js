@@ -16,14 +16,19 @@ class AllArticles extends Component {
   };
 
   fetchAllArticles = (sort_by, order) => {
-    getAllArticles(undefined, sort_by, order).then(articles => {
-      this.setState({ allArticles: articles, isLoading: false });
-    });
+    getAllArticles(undefined, sort_by, order)
+      .then(articles => {
+        this.setState({ allArticles: articles, isLoading: false });
+      })
+      .catch(error => {
+        const { status, statusText } = error.response;
+        this.setState({ error: { status, statusText }, isLoading: false });
+      });
   };
 
   render() {
     const { isLoading, allArticles, error } = this.state;
-    if (error) return <Error />;
+    if (error) return <Error error={error} />;
     if (isLoading) return <p>Loading...</p>;
     return (
       <div class="container">

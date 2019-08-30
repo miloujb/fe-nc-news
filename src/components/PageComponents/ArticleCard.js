@@ -24,16 +24,18 @@ class ArticleCard extends Component {
         this.setState({ singleArticle: article, isLoading: false });
       })
       .catch(error => {
-        console.log(error);
-        this.setState({ error, isLoading: false });
+        console.log(error.response);
+        const { status, statusText } = error.response;
+        this.setState({ error: { status, statusText }, isLoading: false });
       });
   };
 
   render() {
     const article_id = this.props.article_id;
     const { singleArticle, isLoading, error } = this.state;
+    if (error) return <Error error={error} />;
     if (isLoading) return <p>Loading...</p>;
-    if (error) return <Error />;
+    console.log(error);
     return (
       <div class="container">
         <h2>{singleArticle.title}</h2>

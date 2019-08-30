@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
 import Sorter from "./Sorter";
+import Error from "./Error";
 
 class ArticlesByTopic extends Component {
   state = {
     sameTopicArticles: null,
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   componentDidMount = () => {
@@ -15,13 +17,19 @@ class ArticlesByTopic extends Component {
 
   fetchAllArticles = (sort_by, order) => {
     const { topic } = this.props;
-    getAllArticles(topic, sort_by, order).then(articles => {
-      this.setState({ sameTopicArticles: articles, isLoading: false });
-    });
+    getAllArticles(topic, sort_by, order)
+      .then(articles => {
+        this.setState({ sameTopicArticles: articles, isLoading: false });
+      })
+      .catch(error => {
+        const { status, statusText } = error.response;
+        this.setState({ error: { status, statusText }, isLoading: false });
+      });
   };
 
   render() {
-    const { isLoading, sameTopicArticles } = this.state;
+    const { isLoading, sameTopicArticles, error } = this.state;
+    if (error) return <Error error={error} />;
     if (isLoading) return <p>Loading...</p>;
     return (
       <div class="container">
