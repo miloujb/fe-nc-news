@@ -16,6 +16,7 @@ class AddNewComment extends Component {
               type="textarea"
               value={this.state.newComment}
               onChange={this.handleChange}
+              required
             />
           </label>
           <input type="submit" value="submit" />
