@@ -3,6 +3,7 @@ import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
 import Sorter from "./Sorter";
 import Error from "./Error";
+import Spinner from "../Spinner";
 
 class ArticlesByTopic extends Component {
   state = {
@@ -30,7 +31,7 @@ class ArticlesByTopic extends Component {
   render() {
     const { isLoading, sameTopicArticles, error } = this.state;
     if (error) return <Error error={error} />;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     return (
       <div class="container">
         <Sorter fetchAllArticles={this.fetchAllArticles} />

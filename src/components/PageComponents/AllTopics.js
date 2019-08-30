@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getAllTopics } from "../API/api";
 import { Link } from "@reach/router";
 import Error from "./Error";
+import Spinner from "../Spinner";
 
 class AllTopics extends Component {
   state = {
@@ -23,7 +24,7 @@ class AllTopics extends Component {
   render() {
     const { isLoading, allTopics, error } = this.state;
     if (error) return <Error error={error} />;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     return (
       <div class="container">
         <ul>

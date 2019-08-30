@@ -5,6 +5,7 @@ import AddNewComment from "./AddNewComment";
 import VoteUpdater from "./VoteUpdater";
 import Comments from "./Comments";
 import Error from "./Error";
+import Spinner from "../Spinner";
 
 class ArticleCard extends Component {
   state = {
@@ -34,7 +35,7 @@ class ArticleCard extends Component {
     const article_id = this.props.article_id;
     const { singleArticle, isLoading, error } = this.state;
     if (error) return <Error error={error} />;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     console.log(error);
     return (
       <div class="container">

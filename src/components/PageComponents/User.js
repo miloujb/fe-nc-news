@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getUser } from "../API/api";
+import Spinner from "../Spinner";
 
 class User extends Component {
   state = {
@@ -20,7 +21,7 @@ class User extends Component {
 
   render() {
     const { user, isLoading } = this.state;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     return (
       <div>
         <h2>{user.username}'s Profile</h2>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getComments, postComment, deleteComment } from "../API/api";
 import DeleteComment from "./DeleteComment";
 import VoteUpdater from "./VoteUpdater";
+import Spinner from "../Spinner";
 
 class Comments extends Component {
   state = {
@@ -45,7 +46,7 @@ class Comments extends Component {
 
   render() {
     const { articleComments, isLoading } = this.state;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     return (
       <div>
         {articleComments.map(articleComment => {
