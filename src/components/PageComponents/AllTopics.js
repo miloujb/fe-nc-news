@@ -21,7 +21,6 @@ class AllTopics extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { isLoading, allTopics, error } = this.state;
     if (error) return <Error />;
     if (isLoading) return <p>Loading...</p>;
