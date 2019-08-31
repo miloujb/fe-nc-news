@@ -18,6 +18,7 @@ class VoteUpdater extends Component {
         <p>Votes: {votes + voteChanger}</p>
         <form>
           <button
+            class="thumbsup"
             onClick={this.handleClick}
             value={1}
             disabled={voteChanger === 1}
@@ -26,6 +27,7 @@ class VoteUpdater extends Component {
             Upvote
           </button>
           <button
+            class="thumbsdown"
             onClick={this.handleClick}
             value={-1}
             disabled={voteChanger === -1}

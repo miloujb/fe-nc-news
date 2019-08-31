@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { getAllTopics } from "../API/api";
 import { Link } from "@reach/router";
-import Error from "./Error";
-import Spinner from "../Spinner";
+import Error from "../OtherComponents/Error"
+import Spinner from "../OtherComponents/Spinner";
 
 class AllTopics extends Component {
   state = {

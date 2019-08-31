@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "./components/Header";
+import Header from "./components/OtherComponents/Header";
 import AllArticles from "./components/PageComponents/AllArticles";
 import AllTopics from "./components/PageComponents/AllTopics";
 import HomePage from "./components/PageComponents/HomePage";
@@ -9,7 +9,7 @@ import { Router } from "@reach/router";
 import ArticleCard from "./components/PageComponents/ArticleCard";
 import ArticlesByTopic from "./components/PageComponents/ArticlesByTopic";
 import User from "./components/PageComponents/User";
-import Error from "./components/PageComponents/Error";
+import Error from "./components/OtherComponents/Error";
 // import DeleteComment from "./components/PageComponents/DeleteComment";
 
 class App extends React.Component {

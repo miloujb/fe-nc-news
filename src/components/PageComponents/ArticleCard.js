@@ -4,8 +4,8 @@ import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
 import VoteUpdater from "./VoteUpdater";
 import Comments from "./Comments";
-import Error from "./Error";
-import Spinner from "../Spinner";
+import Error from "../OtherComponents/Error";
+import Spinner from "../OtherComponents/Spinner";
 
 class ArticleCard extends Component {
   state = {

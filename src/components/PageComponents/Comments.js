@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getComments, postComment, deleteComment } from "../API/api";
 import DeleteComment from "./DeleteComment";
 import VoteUpdater from "./VoteUpdater";
-import Spinner from "../Spinner";
+import Spinner from "../OtherComponents/Spinner";
 
 class Comments extends Component {
   state = {

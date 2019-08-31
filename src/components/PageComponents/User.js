@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getUser } from "../API/api";
-import Spinner from "../Spinner";
+import Spinner from "../OtherComponents/Spinner";
 
 class User extends Component {
   state = {
@@ -23,7 +23,7 @@ class User extends Component {
     const { user, isLoading } = this.state;
     if (isLoading) return <Spinner />;
     return (
-      <div>
+      <div className="container">
         <h2>{user.username}'s Profile</h2>
         <h3>Name: {user.name}</h3>
         <img src={user.avatar_url} alt={user.username} />

@@ -1,5 +1,4 @@
 import React from "react";
-c
 
 function Header() {
   return (
@@ -7,18 +6,7 @@ function Header() {
       <a className="navbar-brand" href="/">
         NC NEWS
       </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarText">
+      <div id="navbarText">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <a className="nav-link" href="/">
@@ -50,8 +38,12 @@ function Header() {
               All Articles
             </a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/users/jessjelly">
+              Logged in as: jessjelly
+            </a>
+          </li>
         </ul>
-        <span className="navbar-text">Logged in as: jessjelly</span>
       </div>
     </nav>
   );

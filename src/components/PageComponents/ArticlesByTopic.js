@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { getAllArticles } from "../API/api";
 import { Link } from "@reach/router";
 import Sorter from "./Sorter";
-import Error from "./Error";
-import Spinner from "../Spinner";
+import Error from "../OtherComponents/Error";
+import Spinner from "../OtherComponents/Spinner";
 
 class ArticlesByTopic extends Component {
   state = {

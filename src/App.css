@@ -18,11 +18,19 @@ ul {
   text-align: center;
 }
 
-.spinner-grow {
-  align-content: center;
-}
-
 body {
   height: 100%;
   padding-top: 70px;
+}
+
+.navbar-text {
+  text-align: right;
+}
+
+.thumbsup {
+  background-color: green;
+}
+
+.thumbsdown {
+  background-color: red;
 }
