@@ -8,9 +8,7 @@ import "./App.css";
 import { Router } from "@reach/router";
 import ArticleCard from "./components/PageComponents/ArticleCard";
 import ArticlesByTopic from "./components/PageComponents/ArticlesByTopic";
-import Comments from "./components/PageComponents/Comments";
 import User from "./components/PageComponents/User";
-import AddNewComment from "./components/PageComponents/AddNewComment";
 import Error from "./components/PageComponents/Error";
 // import DeleteComment from "./components/PageComponents/DeleteComment";
 
