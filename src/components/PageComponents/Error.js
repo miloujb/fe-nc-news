@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const Error = props => {
-  console.log(props);
   const { status, statusText } = props.error;
   return (
     <>

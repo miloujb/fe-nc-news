@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <div className="header">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
           NC NEWS
         </a>

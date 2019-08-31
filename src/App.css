@@ -17,3 +17,12 @@ ul {
 .container {
   text-align: center;
 }
+
+.spinner-grow {
+  align-content: center;
+}
+
+body {
+  height: 100%;
+  padding-top: 70px;
+}
