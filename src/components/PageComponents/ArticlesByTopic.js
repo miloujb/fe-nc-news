@@ -46,7 +46,7 @@ class ArticlesByTopic extends Component {
             } = sameTopicArticle;
             return (
               <div>
-                <Link to={`/articles/${article_id}`} key={article_id}>
+                <Link to={`/articles/${article_id}`}>
                   <li key={article_id}>{title}</li>
                 </Link>
                 <p>Comments: {comment_count}</p>

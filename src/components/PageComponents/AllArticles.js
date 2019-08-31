@@ -48,7 +48,6 @@ class AllArticles extends Component {
                 <Link
                   to={`/articles/${article_id}`}
                   article_id={article_id}
-                  key={article_id}
                 >
                   <li key={article_id}>{title}</li>
                 </Link>
