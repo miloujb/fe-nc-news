@@ -31,11 +31,6 @@ class App extends React.Component {
             path="/articles/:article_id"
             username={this.state.username}
           />
-          <Comments
-            path="/articles/:article_id/comments"
-            username={this.state.username}
-          />
-          <AddNewComment path="articles/:article_id/comments" />
           <User path="/users/:username" />
           <Error
             path="/error"
