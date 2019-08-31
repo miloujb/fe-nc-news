@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import { getComments, postComment, deleteComment } from "../API/api";
 import DeleteComment from "./DeleteComment";
 import VoteUpdater from "./VoteUpdater";
@@ -58,13 +59,17 @@ class Comments extends Component {
             created_at
           } = articleComment;
           return (
-            <div key={comment_id}>
+            <div key={comment_id} class="comment">
+              <p>
+                Written by <Link to="/users/:username"> {author}</Link>,{" "}
+                {new Date(created_at).toLocaleString()}
+              </p>
               <p>Comment ID: {comment_id}</p>
-              <p>Written by {author}</p>
-              <p>Published on: {new Date(created_at).toLocaleString()}</p>
               <p>{body}</p>
-              <p>Votes: {votes}</p>
-              <VoteUpdater comment_id={comment_id} votes={votes} />
+              <p>
+                Votes: {votes}
+                <VoteUpdater comment_id={comment_id} votes={votes} />
+              </p>
               <DeleteComment
                 username={articleComment.author}
                 comment_id={comment_id}
@@ -73,7 +78,6 @@ class Comments extends Component {
             </div>
           );
         })}
-        )}
       </div>
     );
   }
