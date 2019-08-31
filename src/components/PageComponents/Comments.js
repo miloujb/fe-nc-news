@@ -66,8 +66,6 @@ class Comments extends Component {
               <p>Votes: {votes}</p>
               <VoteUpdater comment_id={comment_id} votes={votes} />
               <DeleteComment
-                comments={articleComments}
-                article_id={this.props.article_id}
                 username={articleComment.author}
                 comment_id={comment_id}
                 loggedInUser={this.state.username}
