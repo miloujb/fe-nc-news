@@ -26,7 +26,7 @@ class AllTopics extends Component {
     if (error) return <Error error={error} />;
     if (isLoading) return <Spinner />;
     return (
-      <div class="flex-container">
+      <div class="topics-list">
         <ul>
           {allTopics.map(topic => {
             const { slug, description } = topic;

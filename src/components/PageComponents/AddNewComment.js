@@ -8,10 +8,10 @@ class AddNewComment extends Component {
 
   render() {
     return (
-      <div>
+      <div className="comment-box">
         <form onSubmit={this.handleSubmit}>
           <label>
-            Comment:
+            Add your comment here...
             <input
               type="textarea"
               value={this.state.newComment}

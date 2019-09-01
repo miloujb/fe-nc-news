@@ -12,6 +12,12 @@ class Comments extends Component {
     username: "jessjelly"
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.articleComments !== prevState.articleComments) {
+      this.fetchComments(this.state.articleComments);
+    }
+  }
+
   componentDidMount() {
     this.fetchComments();
   }
@@ -23,13 +29,13 @@ class Comments extends Component {
     });
   };
 
-  addComment = () => {
+  addComment = newComment => {
     const { article_id, body } = this.props;
     const { username } = this.state;
     postComment({ body, article_id, username }).then(comment => {
-      this.setState(prevState => {
+      this.setState(currentState => {
         return {
-          comments: [comment.data.comment, ...prevState.comments]
+          articleComments: [newComment, ...currentState.comments]
         };
       });
     });
@@ -37,9 +43,9 @@ class Comments extends Component {
 
   removeComment = comment_id => {
     deleteComment(comment_id).then(comment => {
-      this.setState(prevState => {
+      this.setState(currentState => {
         return {
-          comments: [...prevState.comments]
+          articleComments: [...currentState.comments]
         };
       });
     });

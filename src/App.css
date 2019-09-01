@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: navy;
 }
 
 ul {
@@ -20,7 +21,7 @@ ul {
 
 body {
   height: 100%;
-  padding-top: 70px;
+  padding-top: 0;
   background-color: navy;
 }
 
@@ -43,9 +44,10 @@ body {
   padding-bottom: 20px;
 }
 
-.flex-container {
+.topics-list {
   display: flex;
   justify-content: center;
+  border-spacing: 15px;
 }
 
 .topic {
