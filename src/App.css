@@ -8,6 +8,7 @@
 
 ul {
   text-align: center;
+  list-style: none;
 }
 
 .linkList {
@@ -37,6 +38,16 @@ body {
 
 .comment {
   text-align: center;
+  border-style: solid;
+  border-color: black;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.topic {
   border-style: solid;
   border-color: black;
 }

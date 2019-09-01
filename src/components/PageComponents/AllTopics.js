@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getAllTopics } from "../API/api";
 import { Link } from "@reach/router";
-import Error from "../OtherComponents/Error"
+import Error from "../OtherComponents/Error";
 import Spinner from "../OtherComponents/Spinner";
 
 class AllTopics extends Component {
@@ -26,14 +26,18 @@ class AllTopics extends Component {
     if (error) return <Error error={error} />;
     if (isLoading) return <Spinner />;
     return (
-      <div class="container">
+      <div class="flex-container">
         <ul>
           {allTopics.map(topic => {
             const { slug, description } = topic;
             return (
-              <Link to={`/topics/${slug}`} key={slug}>
-                <li key={description}>{slug}</li>
-              </Link>
+              <div class="topic">
+                <Link to={`/topics/${slug}`} key={slug}>
+                  <li key={description}>{slug}</li>
+                </Link>
+                <br />
+                <p>{description}</p>
+              </div>
             );
           })}
         </ul>
