@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: navy;
 }
 
 ul {
@@ -22,7 +21,7 @@ ul {
 body {
   height: 100%;
   padding-top: 0;
-  background-color: navy;
+  background-color: lightseagreen;
 }
 
 .thumbsup {
@@ -64,4 +63,15 @@ body {
   background-color: white;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.home-box {
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
