@@ -75,6 +75,7 @@ class Comments extends Component {
                 comment_id={comment_id}
                 loggedInUser={this.state.username}
               />
+              <br />
             </div>
           );
         })}

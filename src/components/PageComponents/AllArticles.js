@@ -44,11 +44,8 @@ class AllArticles extends Component {
               created_at
             } = article;
             return (
-              <div>
-                <Link
-                  to={`/articles/${article_id}`}
-                  article_id={article_id}
-                >
+              <div class="article">
+                <Link to={`/articles/${article_id}`} article_id={article_id}>
                   <li key={article_id}>{title}</li>
                 </Link>
                 <p>Comments: {comment_count}</p>

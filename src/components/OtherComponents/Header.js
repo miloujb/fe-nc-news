@@ -1,52 +1,63 @@
 import React from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 
-function Header() {
-  return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="/">
-        NC NEWS
-      </a>
-      <div id="navbarText">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/topics/football">
-              Football
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/topics/cooking">
-              Cooking
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/topics/coding">
-              Coding
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/topics/">
-              All Topics
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/articles/">
-              All Articles
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/users/jessjelly">
-              Logged in as: jessjelly
-            </a>
-          </li>
-        </ul>
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar color="dark" dark expand="md">
+          <NavbarBrand href="/">NC NEWS</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">
+                  Logged in as: jessjelly
+                </NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem href="/topics/football">Football</DropdownItem>
+                  <DropdownItem href="/topics/coding">Coding</DropdownItem>
+                  <DropdownItem href="/topics/cooking">Cooking</DropdownItem>
+                  <DropdownItem href="/articles">All Articles</DropdownItem>
+                  <DropdownItem href="/topics">All Topics</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
       </div>
-    </nav>
-  );
+    );
+  }
 }
 
-export default Header;
+// export default Header;

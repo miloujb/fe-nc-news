@@ -2,13 +2,12 @@
   text-align: center;
 }
 
-.Header {
-  text-align: center;
-}
-
 ul {
   text-align: center;
   list-style: none;
+}
+.header {
+  margin: 0;
 }
 
 .linkList {
@@ -22,10 +21,7 @@ ul {
 body {
   height: 100%;
   padding-top: 70px;
-}
-
-.navbar-text {
-  text-align: right;
+  background-color: navy;
 }
 
 .thumbsup {
@@ -40,6 +36,11 @@ body {
   text-align: center;
   border-style: solid;
   border-color: black;
+  background-color: lightgray;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .flex-container {
@@ -50,4 +51,15 @@ body {
 .topic {
   border-style: solid;
   border-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.article {
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }

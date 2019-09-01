@@ -45,7 +45,7 @@ class ArticlesByTopic extends Component {
               created_at
             } = sameTopicArticle;
             return (
-              <div>
+              <div class="article">
                 <Link to={`/articles/${article_id}`}>
                   <li key={article_id}>{title}</li>
                 </Link>

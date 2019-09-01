@@ -36,25 +36,29 @@ class ArticleCard extends Component {
     if (error) return <Error error={error} />;
     if (isLoading) return <Spinner />;
     return (
-      <div class="container">
-        <h2>{singleArticle.title}</h2>
-        <Link to={`/users/${singleArticle.author}`}>
-          <h3>Author: {singleArticle.author}</h3>
-        </Link>
-        <p>{singleArticle.body}</p>
-        <p>
-          Published: {new Date(singleArticle.created_at).toLocaleString()} in{" "}
-          {singleArticle.topic}
-        </p>
-        {/* <p>Votes: {singleArticle.votes}</p> */}
-        <p>{singleArticle.comment_count} Comments</p>
-        <VoteUpdater article_id={article_id} votes={singleArticle.votes} />
-        <AddNewComment
-          article_id={this.props.article_id}
-          username={this.props.username}
-        />
-        <Comments article_id={article_id} />
-      </div>
+      <>
+        <div class="article">
+          <h2>{singleArticle.title}</h2>
+          <Link to={`/users/${singleArticle.author}`}>
+            <h3>Author: {singleArticle.author}</h3>
+          </Link>
+          <p>{singleArticle.body}</p>
+          <p>
+            Published: {new Date(singleArticle.created_at).toLocaleString()} in{" "}
+            {singleArticle.topic}
+          </p>
+          {/* <p>Votes: {singleArticle.votes}</p> */}
+          <p>{singleArticle.comment_count} Comments</p>
+          <VoteUpdater article_id={article_id} votes={singleArticle.votes} />
+          <AddNewComment
+            article_id={this.props.article_id}
+            username={this.props.username}
+          />
+        </div>
+        <div>
+          <Comments article_id={article_id} />
+        </div>
+      </>
     );
   }
 }
