@@ -32,7 +32,7 @@ class ArticleCard extends Component {
 
   render() {
     const article_id = this.props.article_id;
-    const { singleArticle, isLoading, error } = this.state;
+    const { singleArticle, isLoading, error, username } = this.state;
     if (error) return <Error error={error} />;
     if (isLoading) return <Spinner />;
     return (
@@ -50,10 +50,7 @@ class ArticleCard extends Component {
           {/* <p>Votes: {singleArticle.votes}</p> */}
           <p>{singleArticle.comment_count} Comments</p>
           <VoteUpdater article_id={article_id} votes={singleArticle.votes} />
-          <AddNewComment
-            article_id={this.props.article_id}
-            username={this.props.username}
-          />
+          <AddNewComment article_id={article_id} username={username} />
         </div>
         <div>
           <Comments article_id={article_id} />
