@@ -36,7 +36,7 @@ class ArticleCard extends Component {
     if (error) return <Error error={error} />;
     if (isLoading) return <Spinner />;
     return (
-      <>
+      <div class="container">
         <div class="article">
           <h2>{singleArticle.title}</h2>
           <Link to={`/users/${singleArticle.author}`}>
@@ -55,7 +55,7 @@ class ArticleCard extends Component {
         <div>
           <Comments article_id={article_id} />
         </div>
-      </>
+      </div>
     );
   }
 }
