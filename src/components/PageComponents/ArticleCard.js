@@ -50,6 +50,7 @@ class ArticleCard extends Component {
           {/* <p>Votes: {singleArticle.votes}</p> */}
           <p>{singleArticle.comment_count} Comments</p>
           <VoteUpdater article_id={article_id} votes={singleArticle.votes} />
+          <br />
           <AddNewComment article_id={article_id} username={username} />
         </div>
         <div>
