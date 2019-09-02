@@ -1,16 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./components/OtherComponents/Header";
-import AllArticles from "./components/PageComponents/AllArticles";
 import AllTopics from "./components/PageComponents/AllTopics";
 import HomePage from "./components/PageComponents/HomePage";
 import "./App.css";
 import { Router } from "@reach/router";
 import ArticleCard from "./components/PageComponents/ArticleCard";
-import ArticlesByTopic from "./components/PageComponents/ArticlesByTopic";
+import Articles from "./components/PageComponents/Articles";
 import User from "./components/PageComponents/User";
 import Error from "./components/OtherComponents/Error";
-// import DeleteComment from "./components/PageComponents/DeleteComment";
 
 class App extends React.Component {
   state = {
@@ -22,9 +20,9 @@ class App extends React.Component {
         <Header />
         <Router>
           <HomePage path="/" />
-          <AllArticles path="/articles" />
+          <Articles path="/articles" />
           <AllTopics path="/topics" />
-          <ArticlesByTopic path="/topics/:topic" />
+          <Articles path="/topics/:topic" />
           <ArticleCard
             path="/articles/:article_id"
             username={this.state.username}

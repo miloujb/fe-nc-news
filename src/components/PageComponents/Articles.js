@@ -34,7 +34,7 @@ class ArticlesByTopic extends Component {
     if (isLoading) return <Spinner />;
     return (
       <div class="container">
-        <Sorter fetchAllArticles={this.fetchAllArticles} />
+        <Sorter fetchAllArticles={this.fetchAllArticles} topic={this.topic} />
         <ul>
           {sameTopicArticles.map(sameTopicArticle => {
             const {
