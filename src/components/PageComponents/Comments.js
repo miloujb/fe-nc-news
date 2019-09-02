@@ -73,7 +73,6 @@ class Comments extends Component {
               <p>Comment ID: {comment_id}</p>
               <p>{body}</p>
               <p>
-                Votes: {votes}
                 <VoteUpdater comment_id={comment_id} votes={votes} />
               </p>
               <DeleteComment
