@@ -45,6 +45,7 @@ body {
 
 .topics-list {
   display: flex;
+  margin-top: 50px;
   justify-content: center;
   border-spacing: 15px;
 }
