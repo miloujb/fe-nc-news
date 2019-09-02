@@ -67,7 +67,7 @@ class Comments extends Component {
           return (
             <div key={comment_id} class="comment">
               <p>
-                Written by <Link to="/users/:username"> {author}</Link>,{" "}
+                Written by <Link to={`/users/${author}`}>{author}</Link>,{" "}
                 {new Date(created_at).toLocaleString()}
               </p>
               <p>Comment ID: {comment_id}</p>
