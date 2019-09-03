@@ -72,9 +72,8 @@ class Comments extends Component {
               </p>
               <p>Comment ID: {comment_id}</p>
               <p>{body}</p>
-              <p>
-                <VoteUpdater comment_id={comment_id} votes={votes} />
-              </p>
+              {/* <p>Votes: {votes}</p> */}
+              <VoteUpdater comment_id={comment_id} votes={votes} />
               <DeleteComment
                 username={articleComment.author}
                 comment_id={comment_id}

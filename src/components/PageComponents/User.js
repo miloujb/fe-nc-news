@@ -26,7 +26,7 @@ class User extends Component {
       <div className="container">
         <h2>{user.username}'s Profile</h2>
         <h3>Name: {user.name}</h3>
-        <img src={user.avatar_url} alt={user.username} />
+        <img src={user.avatar_url} alt={user.username} class="responsive" />
       </div>
     );
   }
