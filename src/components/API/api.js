@@ -54,6 +54,6 @@ export const patchVotes = (value, article_id) => {
   return axios.patch(`${baseURL}/articles/${article_id}`, { inc_votes: value });
 };
 
-export const patchCommentVotes = (comment_id, value) => {
+export const patchCommentVotes = (value, comment_id) => {
   return axios.patch(`${baseURL}/comments/${comment_id}`, { inc_votes: value });
 };
