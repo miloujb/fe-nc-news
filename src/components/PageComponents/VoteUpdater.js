@@ -43,7 +43,6 @@ class VoteUpdater extends Component {
     const { value } = event.target;
     const { article_id } = this.state;
     const { comment_id } = this.props;
-    console.log(comment_id);
     this.setState(({ voteChanger }) => {
       return {
         voteChanger: voteChanger + +value
