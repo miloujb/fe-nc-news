@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getArticleCard } from "../API/api";
+import { getArticle } from "../API/api";
 import { Link } from "@reach/router";
 import AddNewComment from "./AddNewComment";
 import VoteUpdater from "./VoteUpdater";
@@ -16,11 +16,11 @@ class ArticleCard extends Component {
   };
 
   componentDidMount = () => {
-    this.fetchArticleCard();
+    this.fetchArticle();
   };
 
-  fetchArticleCard = () => {
-    getArticleCard(this.props.article_id)
+  fetchArticle = () => {
+    getArticle(this.props.article_id)
       .then(article => {
         this.setState({ singleArticle: article, isLoading: false });
       })

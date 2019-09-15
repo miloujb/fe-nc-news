@@ -18,7 +18,7 @@ export const getAllTopics = () => {
   });
 };
 
-export const getArticleCard = article_id => {
+export const getArticle = article_id => {
   return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
     return data.article;
   });
