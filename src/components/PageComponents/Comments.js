@@ -14,7 +14,6 @@ class Comments extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { articleComments } = this.state;
-    console.log(articleComments);
     if (articleComments !== prevState.articleComments) {
       this.fetchComments(articleComments);
     }
